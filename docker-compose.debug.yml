@@ -1,0 +1,16 @@
+version: "3.4"
+
+services:
+  productscraper:
+    image: productscraper
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command:
+      [
+        "sh",
+        "-c",
+        "pip install debugpy -t /tmp && python /tmp/debugpy --wait-for-client --listen 0.0.0.0:5678 product_scraper/launch.py ",
+      ]
+    ports:
+      - 5678:5678

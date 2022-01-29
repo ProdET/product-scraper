@@ -1,0 +1,26 @@
+{
+  "configurations": [
+    {
+      "name": "Launch Crawl",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/launch.py",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Docker: Launch Crawl",
+      "type": "docker",
+      "request": "launch",
+      "preLaunchTask": "docker-run: debug",
+      "python": {
+        "pathMappings": [
+          {
+            "localRoot": "${workspaceFolder}",
+            "remoteRoot": "/app"
+          }
+        ],
+        "projectType": "general"
+      }
+    }
+  ]
+}
