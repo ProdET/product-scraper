@@ -35,14 +35,11 @@ class AmazonSpider(scrapy.Spider):
         for container in response.xpath(item_container):
             item = ProductItem()
 
-            title = response.xpath(
-                item_container + '//div[contains(@class,"title")]/span/text()').get()
+            title = container.xpath('//div[contains(@class,"title")]/span/text()').get()
 
-            price = response.xpath(
-                item_container + '//span[@class="a-price-whole"]/text()').get()
+            price = container.xpath('//span[@class="a-price-whole"]/text()').get()
             # , response.xpath(item_container + '//span[@class="a-price-fraction"]/text()').get()])
-            sale_price = response.xpath(item_container +
-                                        '//div[@class="a-section octopus-pc-asin-strike-price"]//text()').get()
+            sale_price = container.xpath('//div[@class="a-section octopus-pc-asin-strike-price"]//text()').get()
 
             # todo: find a better way to grab category
             # category = response.xpath(
@@ -53,9 +50,8 @@ class AmazonSpider(scrapy.Spider):
 
             # availability = response.xpath(
             #    '//div[@id="availability"]//text()').get()
-            product_url = response.xpath(
-                item_container + '//a[@class="a-link-normal octopus-pc-item-link"]/@href').get()
-            image_url = response.xpath(item_container + '//img/@src').get()
+            product_url = container.xpath('//a[@class="a-link-normal octopus-pc-item-link"]/@href').get()
+            image_url = container.xpath('//img/@src').get()
 
             item['product_name'] = title
             # item['product_category'] = ','.join(
