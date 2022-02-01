@@ -10,16 +10,16 @@ import scrapy
 
 class ProductItem(scrapy.Item):
     # product name
-    product_name = scrapy.Field()
+    Name = scrapy.Field()
     # product url
-    product_url = scrapy.Field()
+    Url = scrapy.Field()
     # product category
-    product_category = scrapy.Field()
+    Category = scrapy.Field()
     # base price
-    product_price = scrapy.Field()
+    Price = scrapy.Field()
     # optional: sale price (if applicable)
-    product_sale_price = scrapy.Field()
+    Before_price = scrapy.Field()
     # optional: number of items available
-    product_availability = scrapy.Field()
+    Availability = scrapy.Field()
     # optional: image url
-    product_image = scrapy.Field()
+    Image = scrapy.Field()
