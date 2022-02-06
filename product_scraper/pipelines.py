@@ -4,7 +4,6 @@
 # See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 import json
 import pymongo
-
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
 
@@ -14,7 +13,6 @@ class ProductScraperPipeline:
         line = json.dumps(ItemAdapter(item).asdict()) + "\n"
         self.file.write(line)
         return item
-
 
 class MongoPipeline(object):
     collection_name = 'Scrapy_list'

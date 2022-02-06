@@ -20,10 +20,10 @@ NEWSPIDER_MODULE = 'product_scraper.spiders'
 ROBOTSTXT_OBEY = True
 
 # Desired file format
-FEED_FORMAT = "json"
+FEED_FORMAT = "jl"
 
 # name of output file
-FEED_URI = "amazon.json"
+FEED_URI = "amazon.jl"
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32

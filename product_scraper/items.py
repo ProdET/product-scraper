@@ -4,22 +4,23 @@
 # https://docs.scrapy.org/en/latest/topics/items.html
 
 import scrapy
-
+from dataclasses import dataclass, field
+from typing import Optional
 # Generic product
 
-
-class ProductItem(scrapy.Item):
+@dataclass
+class ProductItem:
     # product name
-    Name = scrapy.Field()
+    name: Optional[str] = field(default=None)
     # product url
-    Url = scrapy.Field()
+    Url: Optional[str] = field(default=None)
     # product category
-    Category = scrapy.Field()
+    Category: Optional[str] = field(default=None)
     # base price
-    Price = scrapy.Field()
+    Price: Optional[float] = field(default=None)
     # optional: sale price (if applicable)
-    Before_price = scrapy.Field()
+    Before_price: Optional[float] = field(default=None)
     # optional: number of items available
-    Availability = scrapy.Field()
+    Availability: Optional[int] = field(default=None)
     # optional: image url
-    Image = scrapy.Field()
+    Image: Optional[str] = field(default=None)
